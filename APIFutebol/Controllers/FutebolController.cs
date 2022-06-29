@@ -18,24 +18,32 @@ namespace APIFutebol.Controllers
 
         // Cria metedo que adiciona um confronto na lista confronto
         [HttpPost]
-        public void AdicionarConfronto([FromBody] Confronto confronto) {
+        public IActionResult AdicionarConfronto([FromBody] Confronto confronto) {
 
             confronto.Id = id++;   
             confrontos.Add(confronto);
+            return CreatedAtAction(nameof(RecuperaConfrontoPorId), new { Id = confronto.Id }, confronto);
         }
 
         // Retorna todos os confrontos
         [HttpGet]
-        public IEnumerable<Confronto> RecuperarConfronto(){
+        public IActionResult RecuperarConfronto(){
             
-            return confrontos;    
+            return Ok(confrontos);    
         }
 
         // Retorna confronto por id
         [HttpGet("{id}")]
-        public Confronto RecuperaConfrontoPorId (int id){
-            
-            return confrontos.FirstOrDefault(confronto => confronto.Id == id);
+        public IActionResult RecuperaConfrontoPorId (int id)
+        {
+
+            Confronto confronto = confrontos.FirstOrDefault(confronto => confronto.Id == id);
+            if (confronto != null)
+            {
+
+                return Ok(confronto);
+            }
+            return NotFound();
         }
     }
 }
