@@ -1,4 +1,5 @@
-﻿using APIFutebol.Models;
+﻿using APIFutebol.Data.Dtos;
+using APIFutebol.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections;
@@ -22,7 +23,17 @@ namespace APIFutebol.Controllers
 
         // Cria metedo que adiciona um confronto na lista confronto
         [HttpPost]
-        public IActionResult AdicionarConfronto([FromBody] Confronto confronto) {
+        public IActionResult AdicionarConfronto([FromBody] PostEPutDto requestDto) {
+
+            Confronto confronto = new Confronto{
+
+                Campeonato = requestDto.Campeonato,
+                Times = requestDto.Times,
+                Estadio = requestDto.Estadio,
+                PublicoPresente = requestDto.PublicoPresente,
+                ChutesAGol_Time1 = requestDto.ChutesAGol_Time1,
+                ChutesAGol_Time2 = requestDto.ChutesAGol_Time2
+            };
 
             _context.Confrontos.Add(confronto);
             _context.SaveChanges();
@@ -43,28 +54,40 @@ namespace APIFutebol.Controllers
 
             Confronto confronto = _context.Confrontos.FirstOrDefault(confronto => confronto.Id == id);
             if (confronto != null){
+                
+                GetDto requestDto = new GetDto{
 
-                return Ok(confronto);
+                    Campeonato = confronto.Campeonato,
+                    Times = confronto.Times,
+                    Estadio = confronto.Estadio,
+                    PublicoPresente = confronto.PublicoPresente,
+                    ChutesAGol_Time1 = confronto.ChutesAGol_Time1,
+                    ChutesAGol_Time2 = confronto.ChutesAGol_Time2
+                };
+                
+                return Ok(requestDto);
             }
+            
             return NotFound();
         }
 
         [HttpPut("{id}")]
-        public IActionResult AtualizaConfronto(int id, [FromBody] Confronto request) {
+        public IActionResult AtualizaConfronto(int id, [FromBody] PostEPutDto requestDto) {
         
+
             Confronto confronto = _context.Confrontos.FirstOrDefault(confronto =>confronto.Id == id);
             if (confronto == null) {
 
                 return NotFound();
             }
-            
-            confronto.Campeonato = request.Campeonato;
-            confronto.Times = request.Times;
-            confronto.Estadio = request.Estadio;
-            confronto.PublicoPresente = request.PublicoPresente;
-            confronto.ChutesAGol_Time1 = request.ChutesAGol_Time1;
-            confronto.ChutesAGol_Time2 = request.ChutesAGol_Time2;
 
+            confronto.Campeonato = requestDto.Campeonato;
+            confronto.Times = requestDto.Times;
+            confronto.Estadio = requestDto.Estadio;
+            confronto.PublicoPresente = requestDto.PublicoPresente;
+            confronto.ChutesAGol_Time1 = requestDto.ChutesAGol_Time1;
+            confronto.ChutesAGol_Time2 = requestDto.ChutesAGol_Time2;
+            
             _context.SaveChanges();
             
             return NoContent();
