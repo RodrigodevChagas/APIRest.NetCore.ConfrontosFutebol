@@ -1,5 +1,6 @@
 ﻿using APIFutebol.Data.Dtos;
 using APIFutebol.Models;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections;
@@ -15,25 +16,19 @@ namespace APIFutebol.Controllers
     public class FutebolController : ControllerBase
     {
         private FutebolContext _context;
+        private IMapper _mapper;
 
-        public FutebolController(FutebolContext context)
+        public FutebolController(FutebolContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         // Cria metedo que adiciona um confronto na lista confronto
         [HttpPost]
         public IActionResult AdicionarConfronto([FromBody] PostEPutDto requestDto) {
 
-            Confronto confronto = new Confronto{
-
-                Campeonato = requestDto.Campeonato,
-                Times = requestDto.Times,
-                Estadio = requestDto.Estadio,
-                PublicoPresente = requestDto.PublicoPresente,
-                ChutesAGol_Time1 = requestDto.ChutesAGol_Time1,
-                ChutesAGol_Time2 = requestDto.ChutesAGol_Time2
-            };
+            Confronto confronto = _mapper.Map<Confronto>(requestDto);
 
             _context.Confrontos.Add(confronto);
             _context.SaveChanges();
@@ -55,16 +50,7 @@ namespace APIFutebol.Controllers
             Confronto confronto = _context.Confrontos.FirstOrDefault(confronto => confronto.Id == id);
             if (confronto != null){
                 
-                GetDto requestDto = new GetDto{
-
-                    Campeonato = confronto.Campeonato,
-                    Times = confronto.Times,
-                    Estadio = confronto.Estadio,
-                    PublicoPresente = confronto.PublicoPresente,
-                    ChutesAGol_Time1 = confronto.ChutesAGol_Time1,
-                    ChutesAGol_Time2 = confronto.ChutesAGol_Time2
-                };
-                
+                GetDto requestDto = _mapper.Map<GetDto>(confronto);
                 return Ok(requestDto);
             }
             
@@ -81,13 +67,8 @@ namespace APIFutebol.Controllers
                 return NotFound();
             }
 
-            confronto.Campeonato = requestDto.Campeonato;
-            confronto.Times = requestDto.Times;
-            confronto.Estadio = requestDto.Estadio;
-            confronto.PublicoPresente = requestDto.PublicoPresente;
-            confronto.ChutesAGol_Time1 = requestDto.ChutesAGol_Time1;
-            confronto.ChutesAGol_Time2 = requestDto.ChutesAGol_Time2;
-            
+            _mapper.Map(requestDto, confronto);
+
             _context.SaveChanges();
             
             return NoContent();
