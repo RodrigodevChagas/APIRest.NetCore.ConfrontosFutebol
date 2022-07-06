@@ -1,4 +1,4 @@
-﻿using APIFutebol.Data.Dtos;
+﻿using APIFutebol.Data.Dtos.Confronto;
 using APIFutebol.Models;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
@@ -11,12 +11,13 @@ using System.Threading.Tasks;
 
 namespace APIFutebol.Controllers
 {
+
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/[controller]")] //Indica rota
     public class FutebolController : ControllerBase
     {
-        private FutebolContext _context;
-        private IMapper _mapper;
+        private FutebolContext _context; 
+        private IMapper _mapper; 
 
         public FutebolController(FutebolContext context, IMapper mapper)
         {
