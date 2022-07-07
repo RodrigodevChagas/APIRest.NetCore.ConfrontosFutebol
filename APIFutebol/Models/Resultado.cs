@@ -2,14 +2,12 @@
 
 namespace APIFutebol.Models
 {
-    public class Estadio
+    public class Resultado
     {
         [Key]
         [Required]
         public int Id { get; set; }
 
-        public string NomeEstadio { get; set; } = string.Empty;
-
-        public int PublicoPresente { get; set; }
+        public int Placar { get; set; }
     }
 }
