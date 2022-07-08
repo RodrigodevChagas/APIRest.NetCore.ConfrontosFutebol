@@ -1,6 +1,6 @@
 ﻿namespace APIFutebol.Data.Dtos.Endereco
 {
-    public class PostEPutEnderecoDto
+    public class PostEPutLocalizacaoDto
     {
         public string Pais { get; set; }
 

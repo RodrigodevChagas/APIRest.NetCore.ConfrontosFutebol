@@ -2,7 +2,7 @@
 
 namespace APIFutebol.Models
 {
-    public class Endereco
+    public class Localizacao
     {
         [Key]
         [Required]

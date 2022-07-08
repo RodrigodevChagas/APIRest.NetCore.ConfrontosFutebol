@@ -2,7 +2,7 @@
 
 namespace APIFutebol.Data.Dtos.Endereco
 {
-    public class GetEnderecoDto
+    public class GetLocalizacaoDto
     {
         [Key]
         [Required]

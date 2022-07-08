@@ -11,7 +11,7 @@ namespace APIFutebol.Data
 
         public DbSet<Confronto> Confrontos { get; set; } // Definindo o conjunto que estarei usando para o banco de dados
         public DbSet<Resultado> Resultados { get; set; }
-        public DbSet<Endereco> Enderecos { get; set; }
+        public DbSet<Localizacao> Localizacoes { get; set; }
 
     }
 }
