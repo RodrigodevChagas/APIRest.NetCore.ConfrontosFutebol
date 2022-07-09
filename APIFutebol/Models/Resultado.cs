@@ -9,5 +9,9 @@ namespace APIFutebol.Models
         public int Id { get; set; }
 
         public int Placar { get; set; }
+
+        public Confronto Confronto { get; set; }
+
+        public int ConfrontoId { get; set; }
     }
 }

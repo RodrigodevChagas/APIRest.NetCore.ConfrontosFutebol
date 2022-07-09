@@ -24,5 +24,7 @@ namespace APIFutebol.Models
         public int PublicoPresente { get; set; }
         public int ChutesAGol_Time1{ get; set; }
         public int ChutesAGol_Time2{ get; set; }
+
+        public Resultado Resultado { get; set; }
     }
 }
