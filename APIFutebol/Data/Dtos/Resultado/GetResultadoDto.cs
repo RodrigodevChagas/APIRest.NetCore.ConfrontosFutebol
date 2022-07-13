@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using APIFutebol.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace APIFutebol.Data.Dtos.Estadio
 {
@@ -10,5 +11,7 @@ namespace APIFutebol.Data.Dtos.Estadio
         public int Id { get; set; }
 
         public int Placar { get; set; } 
+
+        public Resultado Endereco { get; set; }
     }
 }

@@ -7,7 +7,7 @@ using System.Collections;
 namespace APIFutebol.Controllers
 {
     [ApiController]
-    [Route("api/controller")]
+    [Route("api/[controller]")]
     public class ResultadoController : Controller
     {
         private FutebolContext _context;
