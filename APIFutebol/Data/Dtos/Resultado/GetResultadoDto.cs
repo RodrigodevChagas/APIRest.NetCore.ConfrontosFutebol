@@ -10,8 +10,8 @@ namespace APIFutebol.Data.Dtos.Estadio
         [Required]
         public int Id { get; set; }
 
-        public int Placar { get; set; } 
+        public int Placar { get; set; }
 
-        public Resultado Endereco { get; set; }
+        //public virtual Confronto Confronto { get; set; }
     }
 }

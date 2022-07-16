@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace APIFutebol.Models
@@ -25,6 +26,7 @@ namespace APIFutebol.Models
         public int ChutesAGol_Time1{ get; set; }
         public int ChutesAGol_Time2{ get; set; }
 
-        public Resultado Resultado { get; set; }
+        [JsonIgnore]
+        public virtual Resultado Resultado { get; set; }
     }
 }

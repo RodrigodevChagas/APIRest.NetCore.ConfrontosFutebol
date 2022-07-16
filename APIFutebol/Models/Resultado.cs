@@ -10,7 +10,7 @@ namespace APIFutebol.Models
 
         public int Placar { get; set; }
 
-        public Confronto Confronto { get; set; }
+        public virtual Confronto Confronto { get; set; }
 
         public int ConfrontoId { get; set; }
     }
