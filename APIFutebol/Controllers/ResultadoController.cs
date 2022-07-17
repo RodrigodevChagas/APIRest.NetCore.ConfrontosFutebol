@@ -1,14 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
-using APIFutebol.Data.Dtos.Estadio;
 using APIFutebol.Models;
 using System.Collections;
+using APIFutebol.Data.Dtos.ResultadoDto;
 
 namespace APIFutebol.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class ResultadoController : Controller
+    public class ResultadoController : ControllerBase
     {
         private FutebolContext _context;
         private IMapper _mapper;

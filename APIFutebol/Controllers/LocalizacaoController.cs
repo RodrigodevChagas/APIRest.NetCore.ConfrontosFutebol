@@ -1,14 +1,14 @@
 ﻿using APIFutebol.Models;
 using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
-using APIFutebol.Data.Dtos.Endereco;
+using APIFutebol.Data.Dtos.LocalizacaoDto;
 using System.Collections;
 
 namespace APIFutebol.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class LocalizacaoController : Controller
+    public class LocalizacaoController : ControllerBase
     {
         private FutebolContext _context;
         private IMapper _mapper;

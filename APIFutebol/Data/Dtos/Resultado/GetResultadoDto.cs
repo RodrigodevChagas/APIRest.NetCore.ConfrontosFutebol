@@ -1,7 +1,8 @@
-﻿using APIFutebol.Models;
+﻿
+using APIFutebol.Models;
 using System.ComponentModel.DataAnnotations;
 
-namespace APIFutebol.Data.Dtos.Estadio
+namespace APIFutebol.Data.Dtos.ResultadoDto
 {
     public class GetResultadoDto
     {
@@ -12,6 +13,6 @@ namespace APIFutebol.Data.Dtos.Estadio
 
         public int Placar { get; set; }
 
-        //public virtual Confronto Confronto { get; set; }
+        public Confronto Confronto { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace APIFutebol.Data.Dtos.Estadio
+﻿namespace APIFutebol.Data.Dtos.ResultadoDto
 {
     public class PostEPutResultadoDto
     {

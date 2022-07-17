@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace APIFutebol.Data.Dtos.Endereco
+namespace APIFutebol.Data.Dtos.LocalizacaoDto
 {
     public class GetLocalizacaoDto
     {

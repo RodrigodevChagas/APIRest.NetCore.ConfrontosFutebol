@@ -1,4 +1,4 @@
-﻿using APIFutebol.Data.Dtos.Confronto;
+﻿using APIFutebol.Data.Dtos.ConfrontoDto;
 using APIFutebol.Models;
 using AutoMapper;
 

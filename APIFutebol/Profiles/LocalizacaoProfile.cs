@@ -1,4 +1,4 @@
-﻿using APIFutebol.Data.Dtos.Endereco;
+﻿using APIFutebol.Data.Dtos.LocalizacaoDto;
 using APIFutebol.Models;
 using AutoMapper;
 

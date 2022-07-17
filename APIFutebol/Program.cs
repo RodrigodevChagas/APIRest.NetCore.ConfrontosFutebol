@@ -7,10 +7,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 // Adicionando o contexto para que seja inicializado a conexão entre aplicação e banco de dados
-builder.Services.AddDbContext<FutebolContext>(options => 
+builder.Services.AddDbContext<FutebolContext>(options =>
 {
-
-    options.UseSqlServer(builder.Configuration.GetConnectionString("FutebolConnection"));
+    options.UseLazyLoadingProxies()
+    .UseSqlServer(builder.Configuration.GetConnectionString("FutebolConnection"));
 });
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

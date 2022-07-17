@@ -1,4 +1,4 @@
-﻿namespace APIFutebol.Data.Dtos.Endereco
+﻿namespace APIFutebol.Data.Dtos.LocalizacaoDto
 {
     public class PostEPutLocalizacaoDto
     {

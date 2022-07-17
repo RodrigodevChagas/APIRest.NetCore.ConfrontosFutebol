@@ -1,12 +1,12 @@
-﻿using APIFutebol.Data.Dtos.Estadio;
+﻿using APIFutebol.Data.Dtos.ResultadoDto;
 using APIFutebol.Models;
 using AutoMapper;
 
 namespace APIFutebol.Profiles
 {
-    public class Resultado : Profile
+    public class ResultadoProfile : Profile
     {
-        public Resultado()
+        public ResultadoProfile()
         {
             CreateMap<PostEPutResultadoDto, Models.Resultado>();
             CreateMap<Models.Resultado, GetResultadoDto>();
